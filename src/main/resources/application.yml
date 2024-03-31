@@ -1,0 +1,15 @@
+eureka:
+  client:
+    service-url:
+      defaultZone: http://booking-core-discovery:8761/eureka
+    instance:
+      preferIpAddress: true
+server:
+  port: 8888
+spring:
+  application:
+    name: booking-core-api-gateway
+  cloud:
+    config:
+      enabled: true
+      uri: http://localhost:8888
