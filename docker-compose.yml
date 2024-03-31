@@ -1,0 +1,14 @@
+version: '3.9'
+
+services:
+  booking-core_api-gateway:
+    container_name: 'booking-core_api-gateway'
+    build: .
+    ports:
+      - 8888:8888
+    networks:
+      - booking-core
+networks:
+  booking-core:
+    name: booking-core
+    driver: bridge
