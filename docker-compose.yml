@@ -6,8 +6,13 @@ services:
     build: .
     ports:
       - 8888:8888
+      - 5555:5555
     networks:
       - booking-core
+    environment:
+      _JAVA_OPTIONS: >
+        -Xdebug
+        -agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address=*:5555
 networks:
   booking-core:
     name: booking-core

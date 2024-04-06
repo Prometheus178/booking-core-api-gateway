@@ -9,6 +9,8 @@ server:
 spring:
   application:
     name: booking-core-api-gateway
+  main:
+    allow-circular-references: true
   cloud:
     config:
       enabled: true
