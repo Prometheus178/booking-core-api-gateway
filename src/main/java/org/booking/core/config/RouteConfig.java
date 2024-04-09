@@ -24,6 +24,7 @@ public class RouteConfig {
 				.route(authRoute())
 				.route(managementsRoute())
 				.route(customersRoute())
+				.route(appointmentsRoute())
 				.build();
 	}
 
@@ -45,6 +46,16 @@ public class RouteConfig {
 						authenticationFilter.apply(new AuthConfig())
 				))
 				.uri("lb://BOOKING-CORE-V2");
+	}
+
+	private Function<PredicateSpec, Buildable<Route>> appointmentsRoute() {
+		log.info("Invoke managementsRoute");
+		return p -> p
+				.path("/api/v1/appointments/**")
+				.filters(f -> f.filter(
+						authenticationFilter.apply(new AuthConfig())
+				))
+				.uri("lb://BOOKING-CORE-APPOINTMENT-SERVICE");
 	}
 
 	private Function<PredicateSpec, Buildable<Route>> authRoute() {

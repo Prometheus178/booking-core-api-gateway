@@ -1,15 +1,4 @@
 package org.booking.core.request;
 
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
-
-@Data
-@Builder
-@AllArgsConstructor
-@NoArgsConstructor
-public class TokenRequest {
-
-	private String token;
+public record TokenRequest(String token) {
 }
